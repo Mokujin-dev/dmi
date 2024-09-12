@@ -1,21 +1,8 @@
----
 - name: Playbook untuk menjalankan PowerShell dan restart server Windows
   hosts: windows_servers
   gather_facts: no
   tasks:
-
-    - name: Jalankan skrip PowerShell (opsional)
-      win_shell: |
-        Write-Output "Menjalankan skrip PowerShell di Windows server"
-        # Tambahkan perintah PowerShell lainnya di sini, misalnya:
-        # Restart-Service -Name "Spooler"
-      register: powershell_output
-
-    - name: Tampilkan output dari PowerShell
-      debug:
-        var: powershell_output.stdout
-
     - name: Restart Windows Server
       win_reboot:
-        reboot_timeout_sec: 600   # Waktu tunggu untuk reboot selesai
+        reboot_timeout_sec: 600
         msg: "Server akan direstart oleh Ansible playbook"
