@@ -1,6 +1,6 @@
 ---
 - name: Restart Windows Server
-  hosts: all
+  hosts: windows_servers
   tasks:
     - name: Reboot the Windows server
       ansible.windows.win_reboot:
