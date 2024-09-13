@@ -1,3 +1,7 @@
+---
 - name: Restart Windows Server
-  ansible.windows.win_reboot:
-    reboot_timeout: 600  # waktu tunggu dalam detik
+  hosts: all
+  tasks:
+    - name: Reboot the Windows server
+      ansible.windows.win_reboot:
+        reboot_timeout: 600  # waktu tunggu dalam detik
